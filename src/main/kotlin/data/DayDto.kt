@@ -1,12 +1,10 @@
 package data
 
+import com.google.gson.annotations.SerializedName
+
 data class DayDto (
-    val maxtemp_c: Double,
-    val mintemp_c: Double,
-    val avghumidity: Double,
-    val maxwind_kph: Double,
-    val condition: ConditionDto,
-    val daily_will_it_rain: Int,
-    val daily_chance_of_rain: Int,
-    val maxwind_dir: String
+    @SerializedName("maxtemp_c") val maxTempC: Double,
+    @SerializedName("mintemp_c") val minTempC: Double,
+    @SerializedName("avghumidity") val avgHumidity: Double,
+    @SerializedName("maxwind_kph") val maxWindKph: Double
 )

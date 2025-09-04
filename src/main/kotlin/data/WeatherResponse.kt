@@ -1,5 +1,6 @@
 package data
 
-data class WeatherResponse(
+data class WeatherResponseDto(
     val location: LocationDto,
-    val forecast: ForecastDto)
+    val forecast: ForecastDto
+)

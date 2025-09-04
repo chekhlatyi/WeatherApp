@@ -1,5 +1,7 @@
 package data
 
 data class ForecastDayDto(
-    val day: DayDto
+    val date: String,
+    val day: DayDto,
+    val hour: List<HourDto>
 )
