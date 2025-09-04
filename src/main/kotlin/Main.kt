@@ -1,16 +1,18 @@
-package org.example
+import network.WeatherApiClient
+import service.WeatherService
+import utils.TableFormatter
 
-//TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
-// click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 fun main() {
-    val name = "Kotlin"
-    //TIP Press <shortcut actionId="ShowIntentionActions"/> with your caret at the highlighted text
-    // to see how IntelliJ IDEA suggests fixing it.
-    println("Hello, $name!")
+    // Adding an API key to repo is a bad idea, but for the sake of simplicity I'll leave it here
+    // Alternatively you can add this key to env or to some config. For example:
+    // val apiKey = System.getenv("WEATHER_API_KEY") ?: error("Set WEATHER_API_KEY environment variable first!")
 
-    for (i in 1..5) {
-        //TIP Press <shortcut actionId="Debug"/> to start debugging your code. We have set one <icon src="AllIcons.Debugger.Db_set_breakpoint"/> breakpoint
-        // for you, but you can always add more by pressing <shortcut actionId="ToggleLineBreakpoint"/>.
-        println("i = $i")
-    }
+    val apiKey = "5f4414955a064236acc65730250409"
+
+    val service = WeatherService(apiKey)
+    val cities = listOf("Chisinau", "Madrid", "Kyiv", "Amsterdam")
+
+    val weatherData = service.getWeatherForCities(cities)
+
+    TableFormatter.printWeatherTable(weatherData)
 }
